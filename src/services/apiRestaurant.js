@@ -1,5 +1,6 @@
 const API_URL = "https://react-fast-pizza-api.jonas.io/api";
 
+// 用loader函数来加载数据getMenu
 export async function getMenu() {
   const res = await fetch(`${API_URL}/menu`);
 
