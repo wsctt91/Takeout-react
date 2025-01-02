@@ -1,18 +1,19 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    screens: {
-      tablet: "640px",
-      // => @media (min-width: 640px) { ... }
-
-      laptop: "1024px",
-      // => @media (min-width: 1024px) { ... }
-
-      desktop: "1280px",
-      // => @media (min-width: 1280px) { ... }
+    fontFamilt: {
+      sans: "M PLUS, monospace",
     },
-    extend: {},
+    extend: {
+      fontSize: {
+        huge: ["8rem", { lineHeight: "1" }],
+        height: {
+          screen: "100dvh",
+        },
+      },
+    },
   },
   plugins: [],
 };
