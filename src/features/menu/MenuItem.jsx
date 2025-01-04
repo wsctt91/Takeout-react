@@ -1,11 +1,18 @@
 import { formatCurrency } from "../../utils/helpers";
 import Button from "../../ui/Button";
-import { useDispatch } from "react-redux";
-import { addItem } from "../cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, getCurrentQuantityById } from "../cart/cartSlice";
+import DeleteItem from "../cart/DeleteItem";
 
+// 菜单页面的每个商品
 function MenuItem({ pizza }) {
   const dispatch = useDispatch(); // useDispatch作用是获取dispatch函数
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+
+  // ?判断当前商品是否在购物车中
+  const currentQuantity = useSelector(getCurrentQuantityById(id));
+  // console.log(currentQuantity);
+  const isInCart = currentQuantity > 0;
 
   function handleAddToCart() {
     // console.log(id);
@@ -40,7 +47,10 @@ function MenuItem({ pizza }) {
             </p>
           )}
 
-          {!soldOut && (
+          {/* Delete Button */}
+          {isInCart && <DeleteItem pizzaId={id} />}
+          {/* Add Button */}
+          {!soldOut && !isInCart && (
             <Button type="small" onClick={handleAddToCart}>
               Add to Cart
             </Button>

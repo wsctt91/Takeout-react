@@ -9,8 +9,8 @@ import CreateOrder, {
 import Order, { loader as orderLoader } from "./features/order/Order.jsx";
 import AppLayout from "./ui/AppLayout.jsx";
 
-// 使用的是React-Router-V6的新API
-// 命令式的方式在JSX之外创建路由
+// *用的是React-Router-V6的新API
+// *命令式的方式在JSX之外创建路由
 const router = createBrowserRouter([
   {
     // AppLayout是一个布局路由组件，它包含了Header、Outlet和CartOverview

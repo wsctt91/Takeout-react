@@ -1,17 +1,18 @@
 import { formatCurrency } from "../../utils/helpers";
-import Button from "../../ui/Button";
+import DeleteItem from "./DeleteItem";
 
+// 购物车页面的每个商品
 function CartItem({ item }) {
   const { pizzaId, name, quantity, totalPrice } = item;
 
   return (
-    <li className="sm:flex sm:items-center sm:justify-between py-3">
-      <p className="sm:mb-0 mb-1">
-        {quantity}&times; {name}s
+    <li className="py-3 sm:flex sm:items-center sm:justify-between">
+      <p className="mb-1 font-medium sm:mb-0">
+        {quantity} &times; {name}
       </p>
-      <div className="sm:gap-6 flex items-center justify-between">
-        <p className="text-sm font-bold">{formatCurrency(totalPrice)}</p>
-        <Button type="small">Delete</Button>
+      <div className="flex items-center justify-between sm:gap-6">
+        <p className="text-base font-bold">{formatCurrency(totalPrice)}</p>
+        <DeleteItem pizzaId={pizzaId} />
       </div>
     </li>
   );

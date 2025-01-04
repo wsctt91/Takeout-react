@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { getMenu } from "../../services/apiRestaurant";
 import MenuItem from "./MenuItem";
 
-// Menu component
+// 菜单页面
 function Menu() {
   const menu = useLoaderData();
   // console.log(menu);
