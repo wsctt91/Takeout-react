@@ -7,7 +7,7 @@ function getPosition() {
   });
 }
 
-// ReduxThunk来创建
+// ReduxThunk来创建一个异步的action
 export const fetchAddress = createAsyncThunk(
   "user/fetchAddress",
   async function () {
@@ -47,17 +47,18 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
-      .addCase(fetchAddress.pending, (state, action) => {
+      .addCase(fetchAddress.pending, (state) => {
         state.status = "loading";
       })
       .addCase(fetchAddress.fulfilled, (state, action) => {
         state.position = action.payload.position;
         state.address = action.payload.address;
-        state.state = "idle";
+        state.status = "idle";
       })
       .addCase(fetchAddress.rejected, (state, action) => {
         state.status = "error";
-        state.error = action.error.message;
+        state.error =
+          "There was an error getting the address, make sure you have enabled geolocation";
       }),
 });
 

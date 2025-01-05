@@ -8,6 +8,7 @@ import CreateOrder, {
 } from "./features/order/CreateOrder.jsx";
 import Order, { loader as orderLoader } from "./features/order/Order.jsx";
 import AppLayout from "./ui/AppLayout.jsx";
+import { action as updateOrderAction } from "./features/order/UpdateOrder";
 
 // *用的是React-Router-V6的新API
 // *命令式的方式在JSX之外创建路由
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
         element: <Order />,
         loader: orderLoader,
         errorElement: <Error />,
+        action: updateOrderAction,
       },
     ],
   },
