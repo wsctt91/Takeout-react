@@ -44,9 +44,9 @@ function Cart() {
 
   return (
     <div className="px-4 py-3">
-      <LinkButton to="/menu">&larr; Back to menu</LinkButton>
+      <LinkButton to="/menu">&larr; 返回披萨菜单</LinkButton>
 
-      <h2 className="mt-7 text-xl font-semibold">Your cart, {username}</h2>
+      <h2 className="mt-7 text-xl font-semibold">{username}，检查您的购物车</h2>
       <ul className="mt-3 divide-y divide-stone-300 border-b">
         {cart.map((item) => (
           <CartItem item={item} key={item.pizzaId} />
@@ -55,10 +55,11 @@ function Cart() {
 
       <div className="mt-6 space-x-2">
         <Button to="/order/new" type="primary">
-          Order pizza
+          {/* Order pizza */}
+          立即下单
         </Button>
         <Button type="secondary" onClick={() => dispatch(clearCart())}>
-          Clear Cart
+          清除购物车
         </Button>
       </div>
     </div>

@@ -1,7 +1,8 @@
-import { formatCurrency } from "../../utils/helpers";
 import Button from "../../ui/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, getCurrentQuantityById } from "../cart/cartSlice";
+import { formatCurrency } from "../../utils/helpers";
+
 import DeleteItem from "../cart/DeleteItem";
 import UpdateItemQuantity from "../cart/UpdateItemQuantity";
 
@@ -61,7 +62,7 @@ function MenuItem({ pizza }) {
           {/* 添加-Button */}
           {!soldOut && !isInCart && (
             <Button type="small" onClick={handleAddToCart}>
-              Add to Cart
+              加入购物车
             </Button>
           )}
         </div>

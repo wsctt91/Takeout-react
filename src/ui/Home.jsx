@@ -6,19 +6,19 @@ function Home() {
   const username = useSelector((state) => state.user.username);
 
   return (
-    <div className="my-10 px-4 text-center sm:my-16">
-      <h1 className="mb-8 text-center text-xl font-semibold">
+    <div className="my-12 px-4 text-center sm:my-16">
+      <h1 className="my-4 mb-8 text-center text-xl font-semibold">
         The best pizza.
         <br />
         <span className="text-yellow-500">
-          Straight out of the oven, straight to you.
+          新鲜配料，匠心烘焙，为你呈现真正的意大利风味！
         </span>
       </h1>
       {username === "" ? (
         <CreateUser />
       ) : (
         <Button type="primary" to="/menu">
-          Continue Ording - {username}
+          继续下单 - {username}
         </Button>
       )}
     </div>

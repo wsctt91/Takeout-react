@@ -10,6 +10,7 @@ import {
 import { useEffect } from "react";
 import UpdateOrder from "./UpdateOrder";
 
+// 订单页面
 function Order() {
   const order = useLoaderData(); // 22-009 使用loader函数用来加载数据. 数据的获取逻辑集中在路由组件中
   // 使用useFetcher HOOKS来获取数据

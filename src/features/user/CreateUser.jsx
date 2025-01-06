@@ -5,6 +5,7 @@ import { updateName } from "./userSlice";
 import Button from "../../ui/Button";
 import { useNavigate } from "react-router-dom";
 
+// 创建新用户 -> 输入用户名区域
 function CreateUser() {
   const [username, setUsername] = useState("");
   const dispatch = useDispatch();
@@ -21,12 +22,12 @@ function CreateUser() {
   return (
     <form onSubmit={handleSubmit}>
       <p className="mb-4 text-sm text-stone-600 md:text-base">
-        👋 Welcome! Please start by telling us your name:
+        👋 欢迎来到我们的小店！该如何称呼您呢：
       </p>
 
       <input
         type="text"
-        placeholder="Your full name"
+        placeholder="请输入订单用户名"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         // 复用的样式可以和其他地方的样式保持一致
@@ -35,7 +36,7 @@ function CreateUser() {
 
       {username !== "" && (
         <div>
-          <Button type="primary">Start ordering</Button>
+          <Button type="primary">开始订单</Button>
         </div>
       )}
     </form>

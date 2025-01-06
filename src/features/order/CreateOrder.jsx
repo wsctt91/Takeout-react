@@ -67,14 +67,16 @@ function CreateOrder() {
   return (
     <div className="px-4 py-6">
       <h2 className="mb-8 text-xl font-semibold">
-        Ready to order? Let&apos;s go!
+        {/* Ready to order? Let&apos;s go! */}
+        准备好下单了吗？让我们开始吧！
       </h2>
 
       {/* <Form method="POST" action="/api/order"> */}
       <Form method="POST">
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="sm:basis-40">First Name</label>
+          <label className="sm:basis-40">会员证</label>
           <input
+            placeholder="请输入您的用户名"
             className="input grow"
             type="text"
             name="customer"
@@ -84,9 +86,15 @@ function CreateOrder() {
         </div>
 
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="sm:basis-40">Phone number</label>
+          <label className="sm:basis-40">联系电话</label>
           <div className="grow">
-            <input className="input w-full" type="tel" name="phone" required />
+            <input
+              placeholder="XXX-XXXX-XXXX"
+              className="input w-full"
+              type="tel"
+              name="phone"
+              required
+            />
             {formErrors?.phone && (
               <p className="mt-2 rounded-md bg-red-100 text-xs text-red-600">
                 {formErrors.phone}
@@ -96,9 +104,10 @@ function CreateOrder() {
         </div>
 
         <div className="relative mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="sm:basis-40">Address</label>
+          <label className="sm:basis-40">送单地址</label>
           <div className="grow">
             <input
+              placeholder="点击按钮获取地址"
               className="input w-full"
               type="text"
               name="address"
@@ -123,7 +132,7 @@ function CreateOrder() {
                   dispatch(fetchAddress());
                 }}
               >
-                Get Position
+                获取地址
               </Button>
             </span>
           )}
@@ -139,7 +148,8 @@ function CreateOrder() {
             onChange={(e) => setWithPriority(e.target.checked)}
           />
           <label htmlFor="priority" className="font-medium">
-            Want to give your order priority?
+            {/* Want to give your order priority? */}
+            想让您的订单送货吗？
           </label>
         </div>
 
@@ -157,7 +167,7 @@ function CreateOrder() {
           <Button disabled={isSubmitting || isLoadingAddress} type="primary">
             {isSubmitting
               ? "Placing Order..."
-              : `Order Now from ${formatCurrency(totalPrice)}`}
+              : `立即下单 ${formatCurrency(totalPrice)}`}
           </Button>
         </div>
       </Form>
