@@ -41,16 +41,16 @@ function Order() {
   return (
     <div className="space-y-8 px-4 py-6">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h2 className="text-xl font-semibold">Order # {id} Status</h2>
+        <h2 className="text-xl font-semibold">您的订单编号 # {id}</h2>
 
         <div className="space-x-2">
           {priority && (
             <span className="rounded-full bg-red-500 px-3 py-1 font-semibold uppercase tracking-wide text-red-50">
-              Priority
+              优先配送
             </span>
           )}
           <span className="rounded-full bg-green-500 px-3 py-1 font-semibold uppercase tracking-wide text-green-50">
-            {status} order
+            {status} 订单
           </span>
         </div>
       </div>
@@ -58,11 +58,11 @@ function Order() {
       <div className="flex flex-wrap items-center justify-between gap-2 bg-stone-200 px-5 py-5">
         <p className="font-medium">
           {deliveryIn >= 0
-            ? `Only ${calcMinutesLeft(estimatedDelivery)} minutes left 😃`
-            : "Order should have arrived"}
+            ? `还剩 ${calcMinutesLeft(estimatedDelivery)} 分钟订单送达... 🛵😃`
+            : "订单已经到达"}
         </p>
-        <p className="text-xs text-stone-500">
-          (Estimated delivery: {formatDate(estimatedDelivery)})
+        <p className="tex-stone-500 text-xs">
+          (预计送达时间: {formatDate(estimatedDelivery)})
         </p>
       </div>
 
@@ -82,15 +82,15 @@ function Order() {
 
       <div className="space-y-2 bg-stone-200 px-5 py-5">
         <p className="text-sm font-medium text-stone-600">
-          Price pizza: {formatCurrency(orderPrice)}
+          披萨总价: {formatCurrency(orderPrice)}
         </p>
         {priority && (
           <p className="text-sm font-medium text-stone-600">
-            Price priority: {formatCurrency(priorityPrice)}
+            优先送货价: {formatCurrency(priorityPrice)}
           </p>
         )}
         <p className="font-bold">
-          To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
+          订单送货总价: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
 

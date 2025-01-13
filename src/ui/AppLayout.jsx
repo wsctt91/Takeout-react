@@ -10,7 +10,7 @@ function AppLayout() {
   const isLoading = navigation.state === "loading";
 
   return (
-    <div className="grid h-screen grid-flow-row-dense">
+    <div className="flex min-h-screen flex-col">
       {/* Loading页面 */}
       {isLoading && <Loader />}
 
@@ -18,8 +18,8 @@ function AppLayout() {
       <Header />
 
       {/* MainContainer 主要内容 */}
-      <div className="my-10 overflow-scroll">
-        <main className="mx-auto max-w-3xl">
+      <div className="mt-16 flex flex-grow justify-center px-4 sm:px-6">
+        <main className="mx-auto my-5 max-w-3xl">
           {/* Outlet是一个占位符,使用Outlet来渲染子路由 */}
           <Outlet />
         </main>
