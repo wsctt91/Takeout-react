@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import Button from "../../ui/Button";
 import { decreaseItemQuantity, increaseItemQuantity } from "./cartSlice";
+import PropTypes from "prop-types";
 
 function UpdateItemQuantity({ pizzaId, currentQuantity }) {
   const dispatch = useDispatch();
@@ -23,5 +24,10 @@ function UpdateItemQuantity({ pizzaId, currentQuantity }) {
     </div>
   );
 }
+
+UpdateItemQuantity.propTypes = {
+  pizzaId: PropTypes.string.isRequired,
+  currentQuantity: PropTypes.number.isRequired,
+};
 
 export default UpdateItemQuantity;

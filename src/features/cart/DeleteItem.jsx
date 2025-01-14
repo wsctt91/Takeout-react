@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import Button from "../../ui/Button";
 import { deleteItem } from "./cartSlice";
+import PropTypes from "prop-types";
 
 // 订单中的每个商品都有一个删除按钮
 function DeleteItem({ pizzaId }) {
@@ -11,5 +12,9 @@ function DeleteItem({ pizzaId }) {
     </Button>
   );
 }
+
+DeleteItem.propTypes = {
+  pizzaId: PropTypes.string.isRequired,
+};
 
 export default DeleteItem;

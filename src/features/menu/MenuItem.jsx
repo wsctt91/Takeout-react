@@ -2,6 +2,7 @@ import Button from "../../ui/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, getCurrentQuantityById } from "../cart/cartSlice";
 import { formatCurrency } from "../../utils/helpers";
+import PropTypes from "prop-types";
 
 import DeleteItem from "../cart/DeleteItem";
 import UpdateItemQuantity from "../cart/UpdateItemQuantity";
@@ -70,5 +71,9 @@ function MenuItem({ pizza }) {
     </li>
   );
 }
+
+MenuItem.propTypes = {
+  pizza: PropTypes.object.isRequired,
+};
 
 export default MenuItem;
